@@ -1,0 +1,24 @@
+<header>
+    <h1>Bienvenido al almacen</h1>
+    <h2>Tiendita la bendicion</h2>
+<!--Buscador de productos-->
+
+    <input type="text" [value]="buscador" (input)="buscador = $any($event.target).value" placeholder="Escribe para buscar...">
+    <p>Búsqueda actual: {{ buscador }}</p>
+
+<!--Mostrrar o ocultar Productos-->
+    <div *ngIf="botonCambiante === true">    
+        <div *ngFor="let productos of productos">
+            <h3>
+                <p>Producto: {{productos.producto}}, Precio: {{productos.precio}}, Stock: {{productos.stock}}, Activo: {{productos.activo}}</p>
+            </h3>
+        </div>
+    </div>
+
+<!--Boton dinamico-->
+    <button (click)="botonInventario()">
+        {{texto}}
+    </button>
+
+
+</header>
